@@ -1,13 +1,256 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karim's Homepage</title>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer's Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
     <script src="script.js" defer></script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header class="header-wrapper">
+      <div class="header-container">
+        <div class="image-wrapper">
+          <h1>Robert Hudson</h1>
+          <picture>
+            <source
+              media="(max-width: 600px)"
+              srcset="images/header-mobile.jpg"
+            />
+            <source
+              media="(min-width: 601px) and (max-width: 1024px)"
+              srcset="images/header-tablet.jpg"
+            />
+            <img
+              src="images/header-desktop.jpg"
+              alt="Man working on his laptop"
+            />
+          </picture>
+        </div>
+        <div class="header-text-wrapper">
+          <h2>About Me</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+          <div class="button-container">
+            <a
+              href="https://github.com/GoodGuyFate"
+              class="icon-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                alt="Github logo"
+              />
+            </a>
+            <a
+              href=""
+              class="icon-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg"
+                alt="Linkedin logo"
+              />
+            </a>
+            <a
+              href=""
+              class="icon-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg"
+                alt="Twitter/X logo"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main-wrapper">
+      <div class="main-container">
+        <h2>My Work</h2>
+        <div class="grid-container">
+          <div class="card">
+            <img
+              class="project-images"
+              src="images/project-1.png"
+              alt="Screenshot of project 1"
+            />
+            <div class="title-card-wrapper">
+              <h3>Project Title</h3>
+              <a
+                href="https://github.com/GoodGuyFate"
+                class="icon-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="github-icon"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="Github logo"
+                />
+              </a>
+            </div>
+            <div class="description-wrapper">
+              <p>Short description of the project</p>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="project-images"
+              src="images/project-1.png"
+              alt="Screenshot of project 1"
+            />
+            <div class="title-card-wrapper">
+              <h3>Project Title</h3>
+              <a
+                href="https://github.com/GoodGuyFate"
+                class="icon-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="github-icon"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="Github logo"
+                />
+              </a>
+            </div>
+            <div class="description-wrapper">
+              <p>Short description of the project</p>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="project-images"
+              src="images/project-1.png"
+              alt="Screenshot of project 1"
+            />
+            <div class="title-card-wrapper">
+              <h3>Project Title</h3>
+              <a
+                href="https://github.com/GoodGuyFate"
+                class="icon-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="github-icon"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="Github logo"
+                />
+              </a>
+            </div>
+            <div class="description-wrapper">
+              <p>Short description of the project</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <img
+              class="project-images"
+              src="images/project-1.png"
+              alt="Screenshot of project 1"
+            />
+            <div class="title-card-wrapper">
+              <h3>Project Title</h3>
+              <a
+                href="https://github.com/GoodGuyFate"
+                class="icon-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="github-icon"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="Github logo"
+                />
+              </a>
+            </div>
+            <div class="description-wrapper">
+              <p>Short description of the project</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <img
+              class="project-images"
+              src="images/project-1.png"
+              alt="Screenshot of project 1"
+            />
+            <div class="title-card-wrapper">
+              <h3>Project Title</h3>
+              <a
+                href="https://github.com/GoodGuyFate"
+                class="icon-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="github-icon"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="Github logo"
+                />
+              </a>
+            </div>
+            <div class="description-wrapper">
+              <p>Short description of the project</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <img
+              class="project-images"
+              src="images/project-1.png"
+              alt="Screenshot of project 1"
+            />
+            <div class="title-card-wrapper">
+              <h3>Project Title</h3>
+              <a
+                href="https://github.com/GoodGuyFate"
+                class="icon-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="github-icon"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="Github logo"
+                />
+              </a>
+            </div>
+            <div class="description-wrapper">
+              <p>Short description of the project</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <footer class="footer-wrapper">
+      <div class="footer-container">
+        <p>footer</p>
+      </div>
+    </footer>
+  </body>
 </html>
