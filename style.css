@@ -67,7 +67,7 @@ h2 {
 .image-wrapper h1 {
   position: absolute;
   top: 82%;
-  left: 7%;
+  left: 8%;
   color: white;
   font-size: 3vw;
   text-shadow: 1px 5px 2px rgba(0, 0, 0, 0.15);
@@ -164,6 +164,23 @@ main {
 .footer-wrapper {
   padding: 100px 0;
   background-color: #1c3331;
+}
+
+.modal-container {
+  display: none;
+  background-color: #000000bb;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modal {
+  max-width: 900px;
+  background-color: white;
+  padding: 20px;
 }
 
 @media (max-width: 1024px) {
