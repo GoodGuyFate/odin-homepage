@@ -61,10 +61,11 @@ for (project of projects) {
     modalContainerElement = document.querySelector(".modal-container")
     modalContainerElement.style.display = "flex"
 
-    modalTitleElement = document.querySelector(".modal-project-title")
+    modalTitleWrapperElement = document.querySelector(".modal-project-title-wrapper")
+    modalTitleElement = document.querySelector(".modal-project-title-wrapper h3")
     modalTitleElement.textContent = project.title
 
-    modalLinkElement = document.querySelector(".modal-project-title a")
+    modalLinkElement = document.querySelector(".modal-project-title-wrapper a")
     modalLinkElement.href = project.repo
 
     modalDescriptionElement = document.querySelector(".modal-description")
