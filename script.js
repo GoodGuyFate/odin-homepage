@@ -3,7 +3,7 @@ const projects = [
     title: "Weather App",
     shortDescription:
       "A weather app built with HTML, CSS, and Javascript using the OpenWeatherMap API.",
-    longDescription: "",
+    longDescription: "A weather app built with HTML, CSS, and Javascript using the OpenWeatherMap API. I made it whilst going through The Odin Project.",
     screenshots: ["images/project-1.png"],
     repo: "https://github.com/GoodGuyFate/odin-weatherApp",
   },
@@ -56,4 +56,18 @@ for (project of projects) {
 
   cardElement.append(descriptionWrapperElement);
   gridContainer.append(cardElement);
+
+  cardElement.addEventListener("click", (e) => {
+    modalContainerElement = document.querySelector(".modal-container")
+    modalContainerElement.style.display = "flex"
+
+    modalTitleElement = document.querySelector(".modal-project-title")
+    modalTitleElement.textContent = project.title
+
+    modalLinkElement = document.querySelector(".modal-project-title a")
+    modalLinkElement.href = project.repo
+
+    modalDescriptionElement = document.querySelector(".modal-description")
+    modalDescriptionElement.textContent = project.longDescription
+  })
 }
