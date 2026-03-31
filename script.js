@@ -14,7 +14,7 @@ const projects = [
     shortDescription:
       "A browser based recreation of the classic 'Battleship' game.",
     longDescription:
-      "Built as a part of The Odin Project curriculum. With this project we learned a lot about separation of concerns. I built the logic for the game first, and was able to make sure that it functioned before moving on to the frontend. Built with HTML, CSS, Vanilla JavaScript, bundled with Webpack, and has a simple 'bot' opponent that randomly targets the player's board",
+      "Built as a part of The Odin Project curriculum. With this project we learned a lot about separation of concerns. I built the logic for the game first, and was able to make sure that it functioned before moving on to the frontend. Built with HTML, CSS, Vanilla JavaScript, bundled with Webpack, and has a simple 'bot' opponent that randomly targets the player's board.",
     screenshots: [
       "images/project-images/battleship-1.png",
       "images/project-images/battleship-2.png",
@@ -22,6 +22,16 @@ const projects = [
     ],
     repo: "https://github.com/GoodGuyFate/odin-battleship",
     liveUrl: "https://goodguyfate.github.io/odin-battleship/",
+  },
+  {
+    title: "Homepage",
+    shortDescription:
+      "A personal developer portfolio built with HTML, CSS, and vanilla Javascript.",
+    longDescription:
+      "Built whilst going through The Odin Project. A fully responsive personal portfolio homepage built from scratch using HTML, CSS, and vanilla JavaScript. Features a dynamically generated project grid, expandable project cards, an image carousel powered by Swiper.js, and a fullscreen lightbox for screenshots. Designed with a focus on clean UI and smooth interactions.",
+    screenshots: [],
+    repo: "https://github.com/GoodGuyFate/odin-homepage",
+    liveUrl: "https://goodguyfate.github.io/odin-homepage/",
   },
 ];
 
