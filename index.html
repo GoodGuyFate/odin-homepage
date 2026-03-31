@@ -16,6 +16,14 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"
+      defer
+    ></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -100,12 +108,10 @@
 
     <div class="modal-container">
       <div class="modal">
-        <div class="screenshot-container">
-          <img
-            class="project-images"
-            src="images/project-1.png"
-            alt="Screenshot of Weather App"
-          />
+        <div class="swiper screenshot-container">
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
         <div class="modal-project-title-wrapper title-card-wrapper">
           <h3></h3>
@@ -126,7 +132,7 @@
           </p>
         </div>
         <div class="modal-button-container">
-          <button class="close-btn">Close</button>
+          <button class="modal-close-btn">Close</button>
         </div>
       </div>
     </div>
