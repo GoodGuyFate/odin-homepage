@@ -2,38 +2,131 @@ const projects = [
   {
     title: "Weather App",
     shortDescription:
-      "A weather app built with HTML, CSS, and Javascript using the OpenWeatherMap API.",
+      "A weather application built as a part of The Odin Project.",
     longDescription:
-      "A weather app built with HTML, CSS, and Javascript using the OpenWeatherMap API. I made it whilst going through The Odin Project.",
+      "A weather app built with HTML, CSS, and Javascript using the OpenWeatherMap API. Features the ability to search any city and get its' conditions. Built with vanilla JavaScript and bundled with Webpack, and including animated icons made by Meteocons.",
     screenshots: ["images/project-1.png", "images/header-mobile.jpg"],
     repo: "https://github.com/GoodGuyFate/odin-weatherApp",
   },
-  
+  {
+    title: "Battleship",
+    shortDescription:
+      "A browser based recreation of the classic 'Battleship' game.",
+    longDescription:
+      "Built as a part of The Odin Project curriculum. With this project we learned a lot about separation of concerns. I built the logic for the game first, and was able to make sure that it functioned before moving on to the frontend. Built with HTML, CSS, Vanilla JavaScript, bundled with Webpack, and has a simple 'bot' opponent that randomly targets the player's board",
+    screenshots: ["images/battleship-1.png"],
+    repo: "https://github.com/GoodGuyFate/odin-battleship",
+  },
 ];
 
 const gridContainer = document.querySelector(".grid-container");
-const modalContainer = document.querySelector(".modal-container");
-const modalCloseBtn = document.querySelector(".modal-close-btn");
 
 for (const project of projects) {
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
 
-  const imgElement = document.createElement("img");
-  imgElement.classList.add("project-images");
-  imgElement.src = project.screenshots[0];
-  imgElement.alt = `Screenshot of ${project.title}`;
+  // SWIPER FIRST
+  const swiperElement = document.createElement("div");
+  swiperElement.classList.add("swiper");
 
-  cardElement.append(imgElement);
+  const swiperWrapperElement = document.createElement("div");
+  swiperWrapperElement.classList.add("swiper-wrapper");
 
+  swiperElement.append(swiperWrapperElement);
+
+  for (const screenshot of project.screenshots) {
+    const swiperSlideElement = document.createElement("div");
+    swiperSlideElement.classList.add("swiper-slide");
+
+    const swiperImgElement = document.createElement("img");
+    swiperImgElement.src = screenshot;
+
+    swiperImgElement.addEventListener("click", (e) => {
+      const lightboxContainerElement = document.querySelector(
+        ".lightbox-container",
+      );
+      lightboxContainerElement.style.display = "flex";
+
+      const lightboxWrapperElement = document.querySelector(
+        ".lightbox-swiper-main .swiper-wrapper",
+      );
+      lightboxWrapperElement.innerHTML = "";
+
+      const lightboxThumbsWrapperElement = document.querySelector(
+        ".lightbox-swiper-thumbs .swiper-wrapper",
+      );
+      lightboxThumbsWrapperElement.innerHTML = "";
+
+      for (let i = 0; i < project.screenshots.length; i++) {
+        const mainSlide = document.createElement("div");
+        mainSlide.classList.add("swiper-slide");
+        const mainImg = document.createElement("img");
+        mainImg.src = project.screenshots[i];
+        mainSlide.append(mainImg);
+        lightboxWrapperElement.append(mainSlide);
+
+        const thumbSlide = document.createElement("div");
+        thumbSlide.classList.add("swiper-slide");
+        const thumbImg = document.createElement("img");
+        thumbImg.src = project.screenshots[i];
+        thumbSlide.append(thumbImg);
+        lightboxThumbsWrapperElement.append(thumbSlide);
+      }
+
+      const lightboxThumbsSwiper = new Swiper(".lightbox-swiper-thumbs", {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      });
+
+      const lightboxSwiper = new Swiper(".lightbox-swiper-main", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: lightboxThumbsSwiper,
+        },
+      });
+    });
+
+    swiperSlideElement.append(swiperImgElement);
+    swiperWrapperElement.append(swiperSlideElement);
+  }
+
+  const lightboxContainerElement = document.querySelector(
+    ".lightbox-container",
+  );
+
+  lightboxContainerElement.addEventListener("click", (e) => {
+    if (e.target === lightboxContainerElement) {
+      lightboxContainerElement.style.display = "none";
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightboxContainerElement.style.display = "none";
+    }
+  });
+
+  const swiperPaginationElement = document.createElement("div");
+  swiperPaginationElement.classList.add("swiper-pagination");
+  swiperElement.append(swiperPaginationElement);
+  cardElement.append(swiperElement);
+
+  const swiper = new Swiper(swiperElement, {
+    pagination: {
+      el: swiperPaginationElement,
+      clickable: true,
+    },
+  });
+
+  // TITLE + LINK
   const titleCardWrapperElement = document.createElement("div");
   titleCardWrapperElement.classList.add("title-card-wrapper");
-
   cardElement.append(titleCardWrapperElement);
 
   const titleCardElement = document.createElement("h3");
   titleCardElement.textContent = project.title;
-
   titleCardWrapperElement.append(titleCardElement);
 
   const linkElement = document.createElement("a");
@@ -51,72 +144,49 @@ for (const project of projects) {
   linkElement.append(githubIconElement);
   titleCardWrapperElement.append(linkElement);
 
+  // SHORT DESCRIPTION
   const descriptionWrapperElement = document.createElement("div");
   descriptionWrapperElement.classList.add("description-wrapper");
 
   const descriptionElement = document.createElement("p");
   descriptionElement.textContent = project.shortDescription;
   descriptionWrapperElement.append(descriptionElement);
-
   cardElement.append(descriptionWrapperElement);
+
+  // CARD FOOTER
+  const cardFooter = document.createElement("div");
+  cardFooter.classList.add("card-footer");
+
+  const expandBtn = document.createElement("button");
+  expandBtn.classList.add("expand-btn");
+  expandBtn.textContent = "More Info";
+
+  const arrow = document.createElement("span");
+  arrow.textContent = "▼";
+  arrow.classList.add("arrow-icon");
+
+  expandBtn.append(arrow);
+  cardFooter.append(expandBtn);
+  cardElement.append(cardFooter);
+
+  // EXPANDABLE CONTENT
+  const expandedDiv = document.createElement("div");
+  expandedDiv.classList.add("expandable-content");
+
+  const contentInner = document.createElement("div");
+  contentInner.classList.add("content-inner");
+
+  const longDesc = document.createElement("p");
+  longDesc.textContent = project.longDescription;
+
+  contentInner.append(longDesc);
+  expandedDiv.append(contentInner);
+  cardElement.append(expandedDiv);
+
+  // APPEND CARD
   gridContainer.append(cardElement);
 
-  cardElement.addEventListener("click", (e) => {
-    modalContainer.style.display = "flex";
-
-    const modalTitleElement = document.querySelector(
-      ".modal-project-title-wrapper h3",
-    );
-    modalTitleElement.textContent = project.title;
-
-    const modalLinkElement = document.querySelector(
-      ".modal-project-title-wrapper a",
-    );
-    modalLinkElement.href = project.repo;
-
-    const modalDescriptionElement =
-      document.querySelector(".modal-description");
-    modalDescriptionElement.textContent = project.longDescription;
-
-    const swiperWrapperElement = document.querySelector(".swiper-wrapper")
-    swiperWrapperElement.innerHTML = ""
-    for (const screenshot of project.screenshots) {
-      const swiperDiv = document.createElement("div")
-      const imgElement = document.createElement("img")
-
-      swiperDiv.classList.add("swiper-slide")
-      imgElement.classList.add("project-images")
-      imgElement.src = screenshot
-
-      swiperDiv.append(imgElement)
-      swiperWrapperElement.append(swiperDiv)
-    }
+  cardFooter.addEventListener("click", (e) => {
+    e.currentTarget.parentElement.classList.toggle("is-expanded");
   });
 }
-
-
-modalCloseBtn.addEventListener("click", (e) => {
-  modalContainer.style.display = "none";
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    modalContainer.style.display = "none"
-  }
-})
-
-modalContainer.addEventListener("click", (e) => {
-  if (e.target === modalContainer) {
-    modalContainer.style.display = "none"
-  }
-})
-
-const swiper = new Swiper('.swiper', {
-   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
-
-swiper.update()
-swiper.slideTo(0, 0)

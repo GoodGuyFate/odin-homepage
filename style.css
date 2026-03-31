@@ -81,8 +81,6 @@ h2 {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-
-
 .header-text-wrapper {
   display: flex;
   flex-direction: column;
@@ -125,74 +123,168 @@ main {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   padding: 10px 0 100px 0;
+
+  align-items: start;
 }
 
 .github-icon {
-  width: 20px;
+  width: 25px;
 }
 .card {
   max-width: 400px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
+
 .project-images {
   width: 100%;
   display: block;
-  aspect-ratio: 16/9; 
+  aspect-ratio: 16/9;
   object-fit: cover;
 }
 .title-card-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 15px 20px 0 ;
+  padding: 15px 20px 0;
 }
 .description-wrapper {
-  padding: 10px 20px 50px;
+  padding: 10px 20px 20px;
+  flex-grow: 1;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* footer */
 .footer-wrapper {
   padding: 100px 0;
   background-color: #1c3331;
 }
-/* .modal-project-title-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 25px 0;
-} */
 
-.modal-container {
-  display: none;
-  background-color: #000000bb;
-  justify-content: center;
+.expandable-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #ffffff;
+}
+
+.content-inner p {
+  padding: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+  border-left: 2px solid #1c3331;
+  margin: 10px 20px;
+}
+
+.content-inner {
+  overflow: hidden;
+}
+
+.card.is-expanded .expandable-content {
+  grid-template-rows: 1fr;
+}
+
+.content-inner p {
+  padding: 0 20px 20px;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.card-footer {
+  width: 100%;
+  background-color: #f8fafc; 
+  border-top: 1px solid #eee;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center; 
+}
+
+.card-footer:hover {
+  background-color: #f1f5f9;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #1c3331;
+  cursor: pointer;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.arrow-icon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.card.is-expanded .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.card.is-expanded .expand-btn {
+  color: #0891b2; 
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.lightbox-container {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-}
-.modal {
-  max-width: 900px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  border-radius: 10px;
 }
-.modal img {
-  border-radius: 10px;
+
+.lightbox-swiper-main {
+  width: 100%;
+  max-width: 900px;
 }
-.modal-container h3 {
-  font-family: "Playfair Display", serif;
+
+.lightbox-swiper-main .swiper-slide img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+}
+
+.lightbox-swiper-thumbs {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 10px;
+}
+
+.lightbox-swiper-thumbs .swiper-slide img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.lightbox-swiper-thumbs .swiper-slide-thumb-active img {
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {
