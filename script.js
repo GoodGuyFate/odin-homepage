@@ -5,8 +5,9 @@ const projects = [
       "A weather application built as a part of The Odin Project.",
     longDescription:
       "A weather app built with HTML, CSS, and Javascript using the OpenWeatherMap API. Features the ability to search any city and get its' conditions. Built with vanilla JavaScript and bundled with Webpack, and including animated icons made by Meteocons.",
-    screenshots: ["images/project-1.png", "images/header-mobile.jpg"],
+    screenshots: ["images/project-images/weather-app-1.png"],
     repo: "https://github.com/GoodGuyFate/odin-weatherApp",
+    liveUrl: "https://goodguyfate.github.io/odin-weatherApp/",
   },
   {
     title: "Battleship",
@@ -14,8 +15,13 @@ const projects = [
       "A browser based recreation of the classic 'Battleship' game.",
     longDescription:
       "Built as a part of The Odin Project curriculum. With this project we learned a lot about separation of concerns. I built the logic for the game first, and was able to make sure that it functioned before moving on to the frontend. Built with HTML, CSS, Vanilla JavaScript, bundled with Webpack, and has a simple 'bot' opponent that randomly targets the player's board",
-    screenshots: ["images/battleship-1.png"],
+    screenshots: [
+      "images/project-images/battleship-1.png",
+      "images/project-images/battleship-2.png",
+      "images/project-images/battleship-3.png",
+    ],
     repo: "https://github.com/GoodGuyFate/odin-battleship",
+    liveUrl: "https://goodguyfate.github.io/odin-battleship/",
   },
 ];
 
@@ -46,6 +52,7 @@ for (const project of projects) {
         ".lightbox-container",
       );
       lightboxContainerElement.style.display = "flex";
+      setTimeout(() => lightboxContainerElement.classList.add("is-open"), 10);
 
       const lightboxWrapperElement = document.querySelector(
         ".lightbox-swiper-main .swiper-wrapper",
@@ -99,12 +106,14 @@ for (const project of projects) {
 
   lightboxContainerElement.addEventListener("click", (e) => {
     if (e.target === lightboxContainerElement) {
-      lightboxContainerElement.style.display = "none";
+      lightboxContainerElement.classList.remove("is-open");
+      setTimeout(() => (lightboxContainerElement.style.display = "none"), 300);
     }
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      lightboxContainerElement.style.display = "none";
+      lightboxContainerElement.classList.remove("is-open");
+      setTimeout(() => (lightboxContainerElement.style.display = "none"), 300);
     }
   });
 
@@ -129,20 +138,38 @@ for (const project of projects) {
   titleCardElement.textContent = project.title;
   titleCardWrapperElement.append(titleCardElement);
 
-  const linkElement = document.createElement("a");
-  linkElement.classList.add("icon-button");
-  linkElement.target = "_blank";
-  linkElement.rel = "noopener noreferrer";
-  linkElement.href = project.repo;
+  const iconsWrapperEl = document.createElement("div");
+  iconsWrapperEl.classList.add("icons-wrapper");
+  titleCardWrapperElement.append(iconsWrapperEl);
+
+  const githubLinkEl = document.createElement("a");
+  githubLinkEl.classList.add("icon-button");
+  githubLinkEl.target = "_blank";
+  githubLinkEl.rel = "noopener noreferrer";
+  githubLinkEl.href = project.repo;
+
+  const liveUrlLinkEl = document.createElement("a");
+  liveUrlLinkEl.classList.add("icon-button");
+  liveUrlLinkEl.target = "_blank";
+  liveUrlLinkEl.rel = "noopener noreferrer";
+  liveUrlLinkEl.href = project.liveUrl;
+
+  const liveUrlLinkIcon = document.createElement("img");
+  liveUrlLinkIcon.classList.add("github-icon");
+  liveUrlLinkIcon.src = "images/open-in-new.svg";
+  liveUrlLinkIcon.alt = "Share link icon";
 
   const githubIconElement = document.createElement("img");
   githubIconElement.classList.add("github-icon");
   githubIconElement.src =
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg";
-  githubIconElement.alt = "Github logo";
+  githubIconElement.alt = "Github logo icon";
 
-  linkElement.append(githubIconElement);
-  titleCardWrapperElement.append(linkElement);
+  liveUrlLinkEl.append(liveUrlLinkIcon);
+  iconsWrapperEl.append(liveUrlLinkEl);
+
+  githubLinkEl.append(githubIconElement);
+  iconsWrapperEl.append(githubLinkEl);
 
   // SHORT DESCRIPTION
   const descriptionWrapperElement = document.createElement("div");

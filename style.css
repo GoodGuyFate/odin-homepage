@@ -149,6 +149,16 @@ main {
   justify-content: space-between;
   padding: 15px 20px 0;
 }
+.icons-wrapper {
+  display: flex;
+  gap: 15px;
+}
+.icons-wrapper a {
+  transition: transform 0.2s ease;
+}
+.icons-wrapper a:hover {
+  transform: scale(1.2);
+}
 .description-wrapper {
   padding: 10px 20px 20px;
   flex-grow: 1;
@@ -193,12 +203,12 @@ main {
 
 .card-footer {
   width: 100%;
-  background-color: #f8fafc; 
+  background-color: #f8fafc;
   border-top: 1px solid #eee;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .card-footer:hover {
@@ -229,7 +239,7 @@ main {
 }
 
 .card.is-expanded .expand-btn {
-  color: #0891b2; 
+  color: #0891b2;
 }
 
 .swiper {
@@ -285,6 +295,47 @@ main {
 
 .lightbox-swiper-thumbs .swiper-slide-thumb-active img {
   opacity: 1;
+}
+
+.card .swiper-slide {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card .swiper-slide::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  font-size: 2rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.card .swiper-slide:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.card .swiper-slide img {
+  transition: transform 0.3s ease;
+}
+
+.card .swiper-slide:hover img {
+  transform: scale(1.05);
+}
+
+
+.lightbox-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.lightbox-container.is-open {
+  opacity: 1;
+  pointer-events: all;
 }
 
 @media (max-width: 1024px) {
