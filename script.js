@@ -4,7 +4,7 @@ const projects = [
     shortDescription:
       "A weather application built as a part of The Odin Project.",
     longDescription:
-      "A weather app built with HTML, CSS, and Javascript using the OpenWeatherMap API. Features the ability to search any city and get its' conditions. Built with vanilla JavaScript and bundled with Webpack, and including animated icons made by Meteocons.",
+      "A weather app built with HTML, CSS, and Javascript using the VisualCrossing Weather API. Features the ability to search any city and get its' conditions. Built with vanilla JavaScript and bundled with Webpack, and including animated icons made by Meteocons.",
     screenshots: ["images/project-images/weather-app-1.png"],
     repo: "https://github.com/GoodGuyFate/odin-weatherApp",
     liveUrl: "https://goodguyfate.github.io/odin-weatherApp/",
@@ -14,7 +14,7 @@ const projects = [
     shortDescription:
       "A browser based recreation of the classic 'Battleship' game.",
     longDescription:
-      "Built as a part of The Odin Project curriculum. With this project we learned a lot about separation of concerns. I built the logic for the game first, and was able to make sure that it functioned before moving on to the frontend. Built with HTML, CSS, Vanilla JavaScript, bundled with Webpack, and has a simple 'bot' opponent that randomly targets the player's board.",
+      "Built as a part of The Odin Project curriculum. With this project I learned a lot about separation of concerns. I built the logic for the game first, and was able to make sure that it functioned before moving on to the frontend. Built with HTML, CSS, Vanilla JavaScript, bundled with Webpack, and has a simple 'bot' opponent that randomly targets the player's board.",
     screenshots: [
       "images/project-images/battleship-1.png",
       "images/project-images/battleship-2.png",
@@ -29,7 +29,11 @@ const projects = [
       "A personal developer portfolio built with HTML, CSS, and vanilla Javascript.",
     longDescription:
       "Built whilst going through The Odin Project. A fully responsive personal portfolio homepage built from scratch using HTML, CSS, and vanilla JavaScript. Features a dynamically generated project grid, expandable project cards, an image carousel powered by Swiper.js, and a fullscreen lightbox for screenshots. Designed with a focus on clean UI and smooth interactions.",
-    screenshots: [],
+    screenshots: [
+      "images/project-images/homepage-1.png",
+      "images/project-images/homepage-2.png",
+      "images/project-images/homepage-3.png",
+    ],
     repo: "https://github.com/GoodGuyFate/odin-homepage",
     liveUrl: "https://goodguyfate.github.io/odin-homepage/",
   },
